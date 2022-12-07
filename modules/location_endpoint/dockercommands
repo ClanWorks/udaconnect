@@ -1,0 +1,4 @@
+docker build -t ap84gray/uda-location-endpoint .
+docker run -d -p 5070:5070 ap84gray/uda-location-endpoint
+docker tag ap84gray/uda-location-endpoint ap84gray/uda-location-endpoint:v1.0.1
+docker push ap84gray/uda-location-endpoint:v1.0.1

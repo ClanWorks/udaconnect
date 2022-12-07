@@ -1,0 +1,5 @@
+High load can be anticipated at the location endpoint, for this a gPRC will be applied. Message transmission efficiency is key here, gPRC provides the low-latency, high throughput communication required. This lightweight passing can also benefit the key data gathering. 
+
+RESTful message passing is chosen in this project primarily due to its flexibility and versatility. It is readily understood and is an easier choice for passing on to other developers. The throughput is sufficient and does not need to be developed from scratch. 
+
+Apache Kafka is applied to aid in the ingestion of the location data. It is anticipated that this can be a high load point in the system and Kafka will queue the incoming data. Kafka should improve both the performance and reliability of the location ingestion especially at scale.

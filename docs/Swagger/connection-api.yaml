@@ -1,0 +1,59 @@
+openapi: 3.0.0
+info:
+  title: Udaconnect Connection API
+  version: 0.1.1
+  description: API for finding connections
+paths:
+  /api/persons/{person_id}/connection:
+    get:
+      summary: Find and return connections
+      description: For a given id, time range and distance find connections
+      parameters:
+        - name: person_id
+          description: Id for the person of interest
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: start_date
+          description: Lower bound of date range
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: end_date
+          description: Upper bound of date range
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: distance
+          description: Proximity to a given user in meters
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionSchema'
+      operationId: get_connection_data_resource
+      tags:
+        - Connection
+components:
+  schemas:
+    ConnectionSchema:
+      type: object
+      required: 
+        - location
+        - person
+      properties:
+        location:
+          type: object
+        person:
+          type: object
+
+          

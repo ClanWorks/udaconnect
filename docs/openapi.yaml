@@ -1,0 +1,84 @@
+# This is the Swagger OpenAPI documentation for the Person API
+# This file is duplicated at Swagger/person-api.yaml
+# The corresponding documentation for the Connection API is here
+# Swagger/connection-api.yaml
+
+
+openapi: 3.0.0
+info:
+  title: Udaconnect Person API
+  version: 0.1.1
+  description: API for adding and extracting entries from the person table of the database
+paths:
+  /api/persons:
+    post:
+      summary: Add a new person
+      description: Add new entry to person table
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonSchema'
+      operationId: post_persons_resource
+      tags:
+        - Persons
+    get:
+      summary: Get people
+      description: Retrieve all people in table
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonSchema'
+      operationId: get_persons_resource
+      tags:
+        - Persons
+  /api/persons/{person_id}:
+    get:
+      summary: Return chosen entry
+      description: Takes an id and returns the db entry for this id
+      parameters:
+        - in: path
+          description: Unique ID for a given Person
+          name: person_id
+          required: true
+          schema:
+            type: integer
+            example: 2
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonSchema'
+      operationId: get_person_resource
+      tags:
+        - Persons
+components:
+  schemas:
+    PersonSchema:
+      type: object
+      required: 
+        - id
+        - first_name
+        - last_name
+        - company_name
+      properties:
+        person_id:
+          type: integer
+          example: '2'
+        first_name:
+          type: string
+          example: 'Andrew'
+        last_name:
+          type: string
+          example: 'Gray'
+        company_name:
+          type: string
+          example: 'Swiss Cheese'
+

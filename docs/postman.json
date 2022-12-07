@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "6b40b93e-658a-4923-a92a-adb58d7c0aaf",
+		"name": "Udaconnect",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24228811"
+	},
+	"item": [
+		{
+			"name": "Get People",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:30008/api/persons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30008",
+					"path": [
+						"api",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3,\n    \"first_name\": \"Ivana\",\n    \"last_name\": \"Gray\",\n    \"company_name\": \"Bacon\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:30008/api/persons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30008",
+					"path": [
+						"api",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Person",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:30008/api/persons/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30008",
+					"path": [
+						"api",
+						"persons",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Connections",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:30009/api/persons/2/connection?start_date=2019-1-1&end_date=2022-12-31&distance=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30009",
+					"path": [
+						"api",
+						"persons",
+						"2",
+						"connection"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2019-1-1"
+						},
+						{
+							"key": "end_date",
+							"value": "2022-12-31"
+						},
+						{
+							"key": "distance",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

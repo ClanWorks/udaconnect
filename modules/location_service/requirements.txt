@@ -1,0 +1,4 @@
+kafka-python
+GeoAlchemy2==0.8.4
+marshmallow==3.7.1
+psycopg2-binary

@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: location-endpoint
+  name: location-endpoint
+spec:
+  ports:
+  - name: "5070"
+    port: 5070
+    nodePort: 30005
+  selector:
+    service: location-endpoint
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: location-endpoint
+  name: location-endpoint
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: location-endpoint
+  template:
+    metadata:
+      labels:
+        service: location-endpoint
+    spec:
+      containers:
+      - image: ap84gray/uda-location-endpoint:latest
+        name: uda-location-endpoint
+        imagePullPolicy: Always
+        env:
+        - name: TOPIC_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: apachekafka-env
+              key: TOPIC_NAME
+        - name: KAFKA_SERVER
+          valueFrom:
+            configMapKeyRef:
+              name: apachekafka-env
+              key: KAFKA_SERVER
+      restartPolicy: Always

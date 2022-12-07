@@ -1,0 +1,26 @@
+How to use Postman to make a sample gRPC request
+The location endpoint is setup with gRPC
+
+1. Within a workspace select "New" > "gRPC Request"
+
+2. Enter Server URL as localhost:30005
+
+3. Select "Select A Method" > "Import a .proto file" 
+   and navigate to the locaiton.proto file in  modules/location_endpoint, click Next
+
+4. Enter a new API name and then click "Import as API"
+
+5. Select the newly created create method
+
+6. enter your data in the message box formatted according to the following sample 
+
+{
+    "person_id": 2,
+    "latitude": "17.8765",
+    "longitude": "55.1234",
+    "creation_time": "2022-01-01 09:18:27"
+}
+
+7. Click Invoke to send the gRPC request
+
+

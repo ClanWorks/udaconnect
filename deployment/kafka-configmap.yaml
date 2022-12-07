@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  TOPIC_NAME: "uda-location"
+  KAFKA_SERVER: "host.docker.internal:9092"
+metadata:
+  name: apachekafka-env
